@@ -9,9 +9,10 @@ ENV PORT 3000
 EXPOSE 3000
 
 COPY package*.json ./
-RUN npm ci
+RUN npm install
 COPY . ./
 RUN npm run build
 RUN npm prune --production
 
 ENTRYPOINT [ "npm", "start" ]
+EXPOSE 3000
